@@ -1,10 +1,12 @@
-name: 'Auto Assign'
-on: pull_request
+# .github/workflows/auto-author-assign.yml
+name: 'Auto Author Assign'
+
+on:
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
-  add-reviews:
+  add-assignees:
     runs-on: ubuntu-latest
     steps:
-      - uses: kentaro-m/auto-assign-action@v1.1.1
-        with:
-          configuration-path: ".github/auto_assign.yml"
+      - uses: toshimaru/auto-author-assign@v1.1.0
